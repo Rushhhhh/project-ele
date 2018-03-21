@@ -25,7 +25,7 @@
    
     <div id="nowplaying">
     	<h2>正在热映(39部)</h2>
-    	<span><i class="iconfont icon-more"></i></span>
+    	<span><a href="#/list"><i class="iconfont icon-more"></i></a></span>
     	<ul>
     		<li v-for="data in filminfo" :key="data.id">
     			<img :src="data.img">
@@ -124,6 +124,9 @@ body{
 	margin:0px;
 	padding:0px;
 
+}
+a{
+	text-decoration:none;
 }
 li{
 	list-style:none;
