@@ -1,4 +1,4 @@
-<template>
+﻿<template>
 
 <div>
 	<div id="header">
@@ -8,7 +8,7 @@
 			<span><i class="iconfont icon-share"></i></span>
 		</div>
 		<div class="con2">
-			<h2>水形物语</h2>
+			<h2>水形物语 chen</h2>
 			<p>the shape of water</p>
 		</div>
 	</div>
