@@ -4,12 +4,12 @@
 	<nav>
 		<h1><a href=""><img src="http://static1.mtime.cn/html5/20180208104315/images/2014/logo_mtime.png" alt=""></a></h1>
 		<ul>
-			<li>首页首页</li>
+			<li>首页</li>
 			<li>购票</li>
 			<li>商城</li>
 			<li>发现</li>
 		</ul>
-		<i class="iconfont icon-account"></i>
+		<a href="#/login" style="color:white"><i class="iconfont icon-account"></i></a>
 	</nav>
 
     <div id="search">
@@ -27,12 +27,14 @@
     	<h2>正在热映(39部)</h2>
     	<span><a href="#/list"><i class="iconfont icon-more"></i></a></span>
     	<ul>
-    		<li v-for="data in filminfo" :key="data.id">
+    		<li v-for="data in filminfo" :key="data.id" @click="handleClick(data.id)">
     			<img :src="data.img">
     			<p>{{data.t}}</p>
     		</li>
     	</ul>
     	<h2>即将上映(48部)</h2>
+    	<span class="soon"><a href="#/list/comingsoon"><i class="iconfont icon-more"></i></a></span>
+
     </div>
 
     <div id="news">
@@ -81,6 +83,7 @@
 
 <script>
 import axios from "axios";
+ import router from "../router"
 export default {
 	name:"home",
 	data(){
@@ -105,9 +108,11 @@ export default {
 			console.log(error);
 		})
 
-
-
-
+	},
+	methods:{
+		handleClick(id){
+			router.push(`/detail/${id}`);
+		}
 	}
 }
 
@@ -153,7 +158,7 @@ nav{
 		color:#bbb;
 		li{
 			display:inline-block;
-			padding:0 8px;
+			padding:0 15px;
 		}
 	}
 	.iconfont{
@@ -164,40 +169,49 @@ nav{
 }
 
 #search{
-	height:50px;
+	height:60px;
 	line-height:50px;
 	background:#f6f6f6;
 	border-bottom:1px solid #e4e4e4;
 	p{
 		display:inline-block;
 		float:left;
-		margin-left:10px;
-		font-size:18px;
+		margin-left:20px;
+		font-size:20px;
 	}
 	div{
 		position:relative;
+		
 		input{
-			width:220px;
-			height:30px;
+			width:250px;
+			height:45px;
 			border:1px solid #c7c7c7;
-			border-radius:5px;
+			border-radius:12px;
 			margin-left:15px;
 			padding-left:10px;
-			font-size:14px;
-			color:#777
+			font-size:20px;
+			color:#777;
+			margin-top:5px;
 		}
 		i{
 			position:absolute;
-			top:0;
-			left:250px;
+			font-size:18px;
+			top:3px;
+			left:325px;
 		}
 	}
 }
 
 #nowplaying{
 	position:relative;
+	margin-top:10px;
 	padding:10px;
 	background:#fff;
+	.soon{
+		position:absolute;
+		right:20px;
+		top:420px;
+	}
 	h2{
 		padding:5px;
 	}
@@ -217,7 +231,7 @@ nav{
 			float:left;
 			width:80px;
 			height:160px;
-			margin:4px;
+			margin:5px 8px;
 			img{
 				width:80px;
 				height:115px;
@@ -232,7 +246,7 @@ nav{
 	background:white;
 	margin-top:10px;
 	h2{
-		margin-top:5px;
+		padding:5px;
 	}
 	ul{
 		li{
