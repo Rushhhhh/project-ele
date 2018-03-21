@@ -4,7 +4,7 @@
 	  	  <span>北京</span>
 	  	  <i class="iconfont icon-moreunfold"></i>
           <i class="iconfont icon-search"></i>
-	  	  <input type="placeholder" value="影片/影院/影人,任你选">
+	  	  <input type="placeholder" value="影片/影院/影人,任你搜">
 	  </div>
 
 	  <div id="body">
