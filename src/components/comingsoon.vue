@@ -1,8 +1,8 @@
-<template>
+﻿<template>
 	
 	<div>
 	  <div id="up">
-	  	  <span>北京</span>
+	  	  <span>北京  重庆</span>
 	  	  <i class="iconfont icon-moreunfold"></i>
           <i class="iconfont icon-search"></i>
 	  	  <input type="placeholder" value="影片/影院/影人,任你选">
