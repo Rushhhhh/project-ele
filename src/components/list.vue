@@ -38,6 +38,9 @@ export default {
 	padding:0px;
 }
 	#box1{
+		.parent{
+			
+			
 		
 		height:50px;
 		width:100%;
@@ -81,7 +84,7 @@ export default {
 	  	}
 	  }
 	}
-
+}
 	
 
 </style>

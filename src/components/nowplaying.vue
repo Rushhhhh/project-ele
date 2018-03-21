@@ -9,7 +9,7 @@
 
 	  <div id="body">
 	  <ul>
-	     <li v-for="data in datalist" :key="data.id">
+	     <li v-for="data in datalist" :key="data.id" @click="handleClick(data.id)">
 		     <div class="first"><img :src="data.img" /></div>
 		     <div class="second">
 		     <h3>{{data.t}}<span>{{(data.r==-1)?'...':data.r}}</span></h3>
@@ -42,6 +42,11 @@
 		data(){
 			return {
               datalist:[]
+			}
+		},
+		methods:{
+			handleClick(id){
+				router.push(`/detail/${id}`);
 			}
 		},
 		mounted(){

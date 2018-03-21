@@ -103,12 +103,25 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
+
 	name:"detail",
 	data(){
 		return {
 			
 		}
+	},
+	mounted(){
+		console.log(this.$route.params);
+		axios.get(`/Service/callback.mi/movie/Detail.api?movieId=${this.$route.params.id}&locationId=290&t=20183219145214566`).then(res=>{
+			console.log(res.data)
+			
+			
+		}).catch(error=>{
+			console.log(error);
+		})
+
 	}
 }
 
