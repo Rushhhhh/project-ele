@@ -13,12 +13,17 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+<<<<<<< HEAD
     "axios": "^0.18.0",
+=======
+    "array-includes": "^3.0.3",
+>>>>>>> 5576781d901c5285449829e1a4b4672cfbec74a6
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
+    "axios": "^0.18.0",
     "babel-core": "^6.22.1",
     "babel-eslint": "^8.2.1",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
@@ -34,6 +39,7 @@
     "copy-webpack-plugin": "^4.0.1",
     "cross-env": "^5.0.1",
     "css-loader": "^0.28.0",
+    "define-properties": "^1.1.2",
     "element-ui": "^2.2.2",
     "eslint": "^4.15.0",
     "eslint-config-standard": "^10.2.1",
@@ -62,6 +68,7 @@
     "mocha": "^3.2.0",
     "node-notifier": "^5.1.2",
     "node-sass": "^4.7.2",
+    "object-keys": "^1.0.11",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "ora": "^1.2.0",
     "phantomjs-prebuilt": "^2.1.14",

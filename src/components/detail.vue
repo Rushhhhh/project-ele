@@ -3,22 +3,22 @@
 <div>
 	<div id="header">
 		<div class="con1">
-			<span><i class="iconfont icon-back"></i></span>
+			<span><a href="#/list"><i class="iconfont icon-back"></i></a></span>
 			<span><i class="iconfont icon-favorite"></i></span>
 			<span><i class="iconfont icon-share"></i></span>
 		</div>
 		<div class="con2">
-			<h2>水形物语 chen</h2>
-			<p>the shape of water</p>
+			<h2>{{info.titleCn}}</h2>
+			<p>{{info.titleEn}}</p>
 		</div>
 	</div>
 
 	<div id="main">
-		<img src="http://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmt%2F2018%2F03%2F07%2F104447.48999092_1280X720X2.jpg&width=420&height=280&clipType=">
+		<img :src="info.image">
 		<div>
-			<p>123分钟</p>
-			<p>爱情奇幻剧情</p>
-			<p>2018中国上映</p>
+			<p>{{info.runTime}}分钟</p>
+			<p>{{info.type}}</p>
+			<p>{{info.year}}年</p>
 			<span>我想看</span>
 			<span>我要评分</span>
 		</div>
@@ -26,12 +26,12 @@
 	</div>
 
 	<div id="section1">
-		<p>奥斯卡最佳影片讲述人鱼浪漫爱情</p>
+		<p>{{info.commonSpecial}}</p>
 		<span>查影讯/购票</span>
 	</div>
 
 	<div id="section2">
-		<p>该片的故事背景设定在1963年的美国冷战时期，由莎莉·霍金斯饰演的哑女艾丽莎在一间政府高度机密的实验室工作，她和同事泽尔达（奥克塔维亚·斯宾瑟 饰）发现政府在试验某种鱼形怪物，被怪物吸引的艾丽莎计划帮他逃出实验室，与迈克尔·珊农饰演的实验室负责人Strickland展开对抗，从而引发了一连串神秘奇幻的冒险故事。</p>
+		<p>{{info.content}}</p>
 	</div>
 
 	<div id="section3">
@@ -40,24 +40,33 @@
 	</div>
 
 	<div id="section4">
-		<h2>47位演员<span><i class="iconfont icon-more"></i></span></h2>
+		<h2>{{info.personCount}}位演员<span><i class="iconfont icon-more"></i></span></h2>
+
 		<div class="left">
 			<p>导演</p>
+			<img :src="info.director?info.director.directorImg:''" >
+			<p>{{info.director?info.director.directorName:''}}</p>
+			<p>{{info.director?info.director.directorNameEn:''}}</p>
 		</div>
 		<ul class="right">
-			<li>演员1</li>
-			<li>演员2</li>
+			<p>主要演员</p>
+			<li v-for="data in info.actorList" >
+				<img :src="data.actorImg">
+				<p>{{data.actor}}</p>
+				<p>{{data.actorEn}}</p>
+
+			</li>
 		</ul>
 	</div>
 
 	<div id="section5">
 		<h2>网友短评</h2>
 		<ul>
-			<li>
-				<img src="http://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg2.mtime.cn%2Fimages%2Fdefault%2Fhead_48X48.gif&width=80&height=80&clipType=">
+			<li v-for="data in comment">
+				<img :src="data.headurl">
 				<div>
-					<p>名字</p>
-					<p>评论内容</p>
+					<p>{{data.nickname}}</p>
+					<div class="cm"><p>{{data.content}}</p></div>
 					<div class="deal">
 						<span><i class="iconfont icon-comments"></i>回复</span>
 						<span><i class="iconfont icon-good"></i>赞</span>
@@ -65,30 +74,7 @@
 					
 				</div>
 			</li>
-			<li>
-				<img src="http://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg2.mtime.cn%2Fimages%2Fdefault%2Fhead_48X48.gif&width=80&height=80&clipType=">
-				<div>
-					<p>名字</p>
-					<p>评论内容</p>
-					<div class="deal">
-						<span><i class="iconfont icon-comments"></i>回复</span>
-						<span><i class="iconfont icon-good"></i>赞</span>
-					</div>
-					
-				</div>
-			</li>
-			<li>
-				<img src="http://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg2.mtime.cn%2Fimages%2Fdefault%2Fhead_48X48.gif&width=80&height=80&clipType=">
-				<div>
-					<p>名字</p>
-					<p>评论内容</p>
-					<div class="deal">
-						<span><i class="iconfont icon-comments"></i>回复</span>
-						<span><i class="iconfont icon-good"></i>赞</span>
-					</div>
-					
-				</div>
-			</li>
+	
 
 		</ul>
 	</div>
@@ -98,17 +84,64 @@
 		<button>发送</button>
 	</div>
 
+	    <div id="nav2">
+    	<ul>
+    		<li>首页</li>
+    		<li>购票</li>
+    		<li>商城</li>
+    		<li>发现</li>
+    		<li>我的</li>
+    	</ul>
+    </div>
+
+    <div id="nav3">
+    	<ul>
+    		<li><a href="">PC版</a></li>
+	    	<li><a href="">客户端下载</a></li>
+	    	<li><a href="">意见反馈</a></li>
+	    	<li><a href="">帮助中心</a></li>
+    	</ul>	
+    </div>
+
+    <div id="footer">
+    	<p><img src="/static/image/fot_logo.png" alt=""></p>
+    	<p>Copyright2006-2018Mtime.com Inc. All rights reserved.</p>
+    </div>
+
 </div>
 
 </template>
 
 <script>
+import axios from "axios";
 export default {
+
 	name:"detail",
 	data(){
 		return {
-			
+			info:[],
+			comment:[],
 		}
+	},
+	mounted(){
+		console.log(this.$route.params);
+		axios.get(`/Service/callback.mi/movie/Detail.api?movieId=${this.$route.params.id}&locationId=290&t=20183219145214566`).then(res=>{
+			// console.log(res.data)
+			this.info = res.data
+			
+		}).catch(error=>{
+			console.log(error);
+		})
+
+		axios.get(`/Service/callback.mi/Movie/HotLongComments.api?movieId=${this.$route.params.id}&pageIndex=1&t=20183219364230970`).then(res=>{
+			
+			this.comment = res.data.comments;
+			// console.log(this.comment)
+			
+		}).catch(error=>{
+			console.log(error);
+		})
+
 	}
 }
 
@@ -251,9 +284,26 @@ li{
 	}
 	.left{
 		float:left;
+		width:100px;
+		border-right:1px solid #ccc;
+		padding-right:20px;
+		img{
+			width:100px;
+		}
 	}
 	.right{
 		float:right;
+		height:150px;
+		li{
+			width:100px;
+			float:left;
+			height:150px;
+			margin-left:10px;
+			img{
+				width:100px;
+				height:130px;
+			}
+		}
 	}
 }
 
@@ -263,15 +313,25 @@ li{
 	margin-top:20px;
 	ul{
 		margin:20px;
+		.cm{
+			width:230px;
+			white-space:word-break;
+			text-overflow:ellipsis;
+			height:60px;
+			overflow:hidden;
+			margin:5px;
+		}
 		
 		li{
 			height:100px;
 			position:relative;
+			padding:10px 1px;
 			div.deal{
 				position:absolute;
-				bottom:10px;
+				bottom:0px;
 				right:10px;
-				color:#aaa;
+				color:#555;
+				
 				i{
 					font-size:20px;
 					color:#ccc;
@@ -309,5 +369,64 @@ li{
 		border:0;
 		margin-left:15px;
 	}
+}
+
+#nav2{
+	background:white;
+	ul{
+		text-align:center;
+		li{
+			display:inline-block;
+			color:#0074c5;
+			font-size:18px;
+			padding:15px;
+		}
+	}
+}
+
+
+
+#nav3{
+	height:50px;
+	ul{
+		text-align:center;
+
+		li{
+			display:inline-block;
+			font-size:14px;
+			line-height:50px;
+
+			a{
+				border-right:1px solid #ccc;
+				padding-right:15px;
+				padding-left:8px;
+				color:#000;
+				text-decoration:none
+			}
+		}
+		li:last-child{
+			a{
+				border:0;
+			}
+		}
+	}
+}
+
+
+#footer{
+	margin-bottom:50px;
+	img{
+		width:60px;
+		margin-left:150px;
+		margin-top:5px;
+
+	}
+
+	p:nth-of-type(2){
+		color:#ccc;
+		font-size:14px;
+		margin-bottom:20px;
+	}
+	
 }
 </style>

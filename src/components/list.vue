@@ -39,6 +39,12 @@ export default {
 }
 	#box1{
 		.parent{
+<<<<<<< HEAD
+=======
+			
+			
+		
+>>>>>>> 5576781d901c5285449829e1a4b4672cfbec74a6
 		height:50px;
 		width:100%;
 		background:#1c2635;
@@ -82,7 +88,7 @@ export default {
 	  }
 	  }
 	}
-
+}
 	
 
 </style>
