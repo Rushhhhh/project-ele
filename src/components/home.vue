@@ -1,10 +1,10 @@
-<template>
+﻿<template>
 
 <div>
 	<nav>
 		<h1><a href=""><img src="http://static1.mtime.cn/html5/20180208104315/images/2014/logo_mtime.png" alt=""></a></h1>
 		<ul>
-			<li>首页</li>
+			<li>首页首页</li>
 			<li>购票</li>
 			<li>商城</li>
 			<li>发现</li>
