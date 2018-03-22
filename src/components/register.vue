@@ -7,7 +7,8 @@
 	</nav>
 
 	<div id="main">
-		<form action="/" method="post">
+
+		<form>
 			<div>
 				<span>手机号:</span>
 				<input type="text" name="phone" class="text" placeholder="请输入手机号" v-model="phone">
@@ -21,7 +22,7 @@
 				<input type="password" name="password" placeholder="6-20位字母、数字、符号组成" v-model="password">
 			</div>
 			<input type="radio" class="radio"> 我已阅读并同意<a href="">《Mtime时光网服务条款》</a>
-			<button @click="handleClick">注册</button>
+			<button @click="handleClick" type="button">注册</button>
 		</form>
 	</div>
 	    <div id="nav2">
@@ -68,14 +69,19 @@ export default {
 	},
 	methods:{
 		handleClick(){
+			
 			axios.post("/register",{
 				phone:this.phone,
 				password:this.password
 			}).then(res=>{
-				console.log("res success");
+				console.log("111111111111")
+			window.location.href="http://localhost:8080/#/home";
+				
 			}).catch(error=>{
 				console.log(error);
+				console.log("22")
 			})
+
 		}
 		
 	}

@@ -1,7 +1,7 @@
 <template>
   <div>
    <div id="top" @click="handclick">
-	<div><i class="iconfont icon-icondownload"></i></div>
+	<div><i class="iconfont icon-less"></i></div>
 	</div>
   	<router-view></router-view>
 
@@ -35,13 +35,10 @@ export default {
       	border-radius:50%;
       	text-align:center;
       	line-height:50px;
-      	i{
+      	.iconfont{
 
         display:block;
-      	width:50px;
-      	height:50px;
-      	
-      	
+        font-size:26px !important;
       	
       }
     }

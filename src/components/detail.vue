@@ -338,19 +338,18 @@ li{
 	margin-top:20px;
 	ul{
 		margin:20px;
-		.cm{
-			width:310px;
-			white-space:word-break;
-			text-overflow:ellipsis;
-			height:40px;
-			overflow:hidden;
-			padding-left:10px;
-		}
 		
 		li{
 			height:100px;
 			position:relative;
 			padding:10px 1px;
+			>div{
+				margin-left:10px;
+				width:300px;
+				height:65px;
+				overflow:hidden;
+				padding-left:20px;
+				}
 			div.deal{
 				position:absolute;
 				bottom:0px;
@@ -368,7 +367,7 @@ li{
 				float:left;
 				width:50px;
 				border-radius:50%;
-				
+
 
 			}
 		}

@@ -9,16 +9,16 @@
 	</nav>
 
 	<div id="main">
-		<form action="">
+		<form>
 			<div>
 				<i class="iconfont icon-account"></i>
-				<input type="text" class="text" placeholder="登录邮箱/手机号码">
+				<input type="text" class="text" placeholder="登录邮箱/手机号码" v-model="phone" name="phone">
 			</div>
 			<div>
 				<i class="iconfont icon-edit"></i>
-				<input type="password" placeholder="密码">
+				<input type="password" placeholder="密码" v-model="password" name="password">
 			</div>
-			<button>登录</button>
+			<button type="button" @click="handleClick">登录</button>
 		</form>
 	</div>
 
@@ -38,12 +38,31 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
 	name:"login",
 	data(){
 		return {
-			
+			phone:null,
+			password:null,
 		}
+	},
+	methods:{
+		handleClick(){
+			axios.post("/login",{
+				phone:this.phone,
+				password:this.password
+			}).then(res=>{
+				console.log("111111111111")
+			window.location.href="http://localhost:8080/#/home";
+				
+			}).catch(error=>{
+				console.log(error);
+				
+			})
+
+		}
+		
 	}
 }
 
