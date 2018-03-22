@@ -1,6 +1,8 @@
 <template>
 
 <div id="box1">
+
+    
 	<div class="parent">
 	<div class="left"><a href="#/home"> < </a></div>
 	<div class="right">
@@ -18,14 +20,28 @@
 </template>
 
 <script>
+
+import Vue from "Vue"
 export default {
+
+
 	name:"list",
 	data(){
 		return {
 			
 		}
 	}
+
+
+
+
 }
+
+
+
+	
+
+
 
 	
 </script>
@@ -38,6 +54,7 @@ export default {
 	padding:0px;
 }
 	#box1{
+      
 		.parent{
 
 		height:50px;
