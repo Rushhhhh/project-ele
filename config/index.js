@@ -15,7 +15,14 @@ module.exports = {
             target:'http://m.mtime.cn',
             host:'m.mtime.cn',
             changeOrigin:true,
-        }
+        },
+
+        '/register':{
+            target:'http://localhost:3000',
+            host:'localhost:3000',
+            changeOrigin:true,
+        },
+       
     },
 
     // Various Dev Server settings
