@@ -7,10 +7,10 @@
 	</nav>
 
 	<div id="main">
-		<form action="">
+		<form action="/" method="post">
 			<div>
 				<span>手机号:</span>
-				<input type="text" class="text" placeholder="请输入手机号">
+				<input type="text" name="phone" class="text" placeholder="请输入手机号" v-model="phone">
 			</div>
 			<div>
 				<span>验证码:</span>
@@ -18,10 +18,10 @@
 			</div>
 			<div>
 				<span>密码:</span>
-				<input type="password" placeholder="6-20位字母、数字、符号组成">
+				<input type="password" name="password" placeholder="6-20位字母、数字、符号组成" v-model="password">
 			</div>
 			<input type="radio" class="radio"> 我已阅读并同意<a href="">《Mtime时光网服务条款》</a>
-			<button>注册</button>
+			<button @click="handleClick">注册</button>
 		</form>
 	</div>
 	    <div id="nav2">
@@ -54,12 +54,30 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
 	name:"register",
 	data(){
 		return {
-			
+			phone:null,
+			password:null
 		}
+	},
+	mounted(){
+		//console.log(111111111111)
+	},
+	methods:{
+		handleClick(){
+			axios.post("/register",{
+				phone:this.phone,
+				password:this.password
+			}).then(res=>{
+				console.log("res success");
+			}).catch(error=>{
+				console.log(error);
+			})
+		}
+		
 	}
 }
 

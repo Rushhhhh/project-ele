@@ -3,7 +3,7 @@
 <div>
 	<div id="header">
 		<div class="con1">
-			<span><a href="#/list"><i class="iconfont icon-back"></i></a></span>
+			<span><a href="#/list"><i class="iconfont icon-back" style="color:white"></i></a></span>
 			<span><i class="iconfont icon-favorite"></i></span>
 			<span><i class="iconfont icon-share"></i></span>
 		</div>
@@ -25,9 +25,9 @@
 		
 	</div>
 
-	<div id="section1">
+	<div id="section1" class="isFixed">
 		<p>{{info.commonSpecial}}</p>
-		<span>查影讯/购票</span>
+		<div :class="searchBarFixed==true?'isFixed':''"><span>查影讯/购票</span></div>
 	</div>
 
 	<div id="section2">
@@ -53,7 +53,7 @@
 			<li v-for="data in info.actorList" >
 				<img :src="data.actorImg">
 				<p>{{data.actor}}</p>
-				<p>{{data.actorEn}}</p>
+				<p>{{data.actorEn}}</p> 
 
 			</li>
 		</ul>
@@ -114,6 +114,7 @@
 
 <script>
 import axios from "axios";
+import Vue from "Vue";
 export default {
 
 	name:"detail",
@@ -121,6 +122,7 @@ export default {
 		return {
 			info:[],
 			comment:[],
+			searchBarFixed:false,
 		}
 	},
 	mounted(){
@@ -142,6 +144,20 @@ export default {
 			console.log(error);
 		})
 
+		window.addEventListener("scroll",this.handleScroll)
+
+	},
+	methods:{
+		handleScroll(){
+			var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+			// console.log(scrollTop);
+			var offsetTop = document.querySelector('#section1').offsetTop;
+			if (scrollTop > offsetTop) {
+				 this.searchBarFixed = true;
+				 } else {
+				 this.searchBarFixed = false
+				 }
+		}
 	}
 }
 
@@ -229,6 +245,14 @@ li{
 #section1{
 	background:white;
 	padding-bottom:50px;
+	 .isFixed{
+	 	position:fixed;
+	 	top:0px;
+	 	background:#fff;
+	 	width:100%;
+	 	padding:20px 0px;
+	 	z-index:2;
+	 }
 	p{
 		color:#fd8900;
 		text-align:center;
@@ -287,6 +311,7 @@ li{
 		width:100px;
 		border-right:1px solid #ccc;
 		padding-right:20px;
+		margin-left:10px;
 		img{
 			width:100px;
 		}
@@ -298,7 +323,7 @@ li{
 			width:100px;
 			float:left;
 			height:150px;
-			margin-left:10px;
+			margin-right:20px;
 			img{
 				width:100px;
 				height:130px;
@@ -314,12 +339,12 @@ li{
 	ul{
 		margin:20px;
 		.cm{
-			width:230px;
+			width:310px;
 			white-space:word-break;
 			text-overflow:ellipsis;
-			height:60px;
+			height:40px;
 			overflow:hidden;
-			margin:5px;
+			padding-left:10px;
 		}
 		
 		li{
@@ -335,6 +360,7 @@ li{
 				i{
 					font-size:20px;
 					color:#ccc;
+					margin:5px;
 				}
 			}
 
@@ -342,6 +368,7 @@ li{
 				float:left;
 				width:50px;
 				border-radius:50%;
+				
 
 			}
 		}
@@ -354,20 +381,21 @@ li{
 	position:fixed;
 	bottom:0px;
 	height:50px;
+	width:100%;
 
 	input{
-		width:280px;
+		width:300px;
 		height:40px;
 		margin-left:10px;
 		margin-top:3px;
 		font-size:16px;
 	}
 	button{
-		width:50px;
+		width:80px;
 		height:40px;
 		font-size:16px;
 		border:0;
-		margin-left:15px;
+		margin-left:5px;
 	}
 }
 

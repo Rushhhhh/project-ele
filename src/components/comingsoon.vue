@@ -41,12 +41,12 @@
 		  <h1>即将上映<span>(45部)</span></h1>
 	      <h2><span>{{numlist[0]?numlist[0].rMonth:''}}</span>月<span>{{numlist[0]?numlist[0].rDay:''}}</span>日</h2>
 	      <ul>
-	        <li class="one" v-for="date in numlist">
-             <div class="first"><img :src="date.image" /></div>
+	        <li class="one" v-for="data in numlist" @click="handleClick(data.id)">
+             <div class="first"><img :src="data.image" /></div>
 		     <div class="second">
-			     <h3>{{date.title}}</h3>
-			     <h4><span>{{date.wantedCount}}</span>人想看 - {{date.type}}</h4>
-			     <h5>导演 : {{date.director}}</h5>
+			     <h3>{{data.title}}</h3>
+			     <h4><span>{{data.wantedCount}}</span>人想看 - {{data.type}}</h4>
+			     <h5>导演 : {{data.director}}</h5>
 			    
 			     
 		     
@@ -89,7 +89,8 @@
 </template>
 
 <script type="text/javascript">
- import axios from "axios"
+ import axios from "axios";
+ import router from "../router";
 	export default{
 		name:'comingsoon',
 		
@@ -97,9 +98,15 @@
 			return {
                datalist:'',
                piclist:'',
-               numlist:''
+               numlist:[],
 			}
 		},
+		methods:{
+			handleClick(id){
+				router.push(`/detail/${id}`);
+			}
+		},
+
 		mounted(){
 			axios.get("/Service/callback.mi/Movie/MovieComingNew.api?locationId=290&t=2018321871438507").then(res=>{
 				/* console.log(res.data.attention[0]); */
