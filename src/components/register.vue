@@ -75,7 +75,7 @@ export default {
 				password:this.password
 			}).then(res=>{
 				console.log("111111111111")
-			window.location.href="http://localhost:8080/#/home";
+			window.location.href="http://localhost:8080/#/login";
 				
 			}).catch(error=>{
 				console.log(error);

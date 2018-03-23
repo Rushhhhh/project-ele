@@ -59,7 +59,7 @@
 		</ul>
 	</div>
 
-	<div id="section5">
+	<div id="section5" v-if="comment.length>0?true:false">
 		<h2>网友短评</h2>
 		<ul>
 			<li v-for="data in comment">
@@ -123,6 +123,7 @@ export default {
 			info:[],
 			comment:[],
 			searchBarFixed:false,
+			isShow:false
 		}
 	},
 	mounted(){
@@ -138,6 +139,7 @@ export default {
 		axios.get(`/Service/callback.mi/Movie/HotLongComments.api?movieId=${this.$route.params.id}&pageIndex=1&t=20183219364230970`).then(res=>{
 			
 			this.comment = res.data.comments;
+			// console.log(this.comment.length);
 			// console.log(this.comment)
 			
 		}).catch(error=>{
@@ -151,7 +153,7 @@ export default {
 		handleScroll(){
 			var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
 			// console.log(scrollTop);
-			var offsetTop = document.querySelector('#section1').offsetTop;
+			var offsetTop =document.querySelector('#section1')?document.querySelector('#section1').offsetTop:'';
 			if (scrollTop > offsetTop) {
 				 this.searchBarFixed = true;
 				 } else {

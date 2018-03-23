@@ -120,7 +120,7 @@
 				})
 
 			axios.get("/Service/callback.mi/Movie/MovieComingNew.api?locationId=290&t=2018321871438507").then(res=>{
-				console.log(res.data.moviecomings);
+				// console.log(res.data.moviecomings);
 				this.numlist=res.data.moviecomings
 			})
 		}

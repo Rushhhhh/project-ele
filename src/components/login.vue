@@ -49,7 +49,9 @@ export default {
 	},
 	methods:{
 		handleClick(){
-			axios.post("/login",{
+			console.log(this.phone)
+			console.log(this.password)
+			axios.post("/register",{
 				phone:this.phone,
 				password:this.password
 			}).then(res=>{
@@ -61,8 +63,7 @@ export default {
 				
 			})
 
-		}
-		
+		}		
 	}
 }
 
